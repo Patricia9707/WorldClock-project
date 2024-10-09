@@ -18,6 +18,8 @@ function updateCity(event) {
                 <small>${cityTime.format("A")}</small>
             </div>
         </div>
+        <br>
+        <a href="index.html">Back</a>
     `;
 }
 
