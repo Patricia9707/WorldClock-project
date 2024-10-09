@@ -1,7 +1,9 @@
 function updateCity(event) {
   let cityTimeZone = event.target.value;
-  if (cityTimeZone === "") return; // Prevent errors if no city is selected
-
+  if (cityTimeZone === "current") 
+  {
+    cityTimeZone = moment.tz.guess();
+  }
   // Get the city's name and time
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
@@ -24,14 +26,6 @@ function updateCity(event) {
 
 // Initialize the clock for existing cities
 function updateTime() {
-  // Johannesburg
-  let johannesburgElement = document.querySelector("#johannesburg");
-  let johannesburgTime = moment().tz("Africa/Johannesburg");
-  johannesburgElement.querySelector(".date").innerHTML =
-    johannesburgTime.format("MMMM Do YYYY");
-  johannesburgElement.querySelector(".time").innerHTML =
-    johannesburgTime.format("h:mm:ss [<small>]A[</small>]");
-
   // Los Angeles
   let losAngelesElement = document.querySelector("#los-angeles");
   let losAngelesTime = moment().tz("America/Los_Angeles");
